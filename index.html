@@ -723,8 +723,74 @@ section {
   border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 
+/* 顶部透明导航，覆盖在 parallax 图上 */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  /* 轻微的上方渐变，方便读字 */
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.55),
+    rgba(0, 0, 0, 0)
+  );
+  pointer-events: auto;
+}
 
-  </style>
+.header-inner {
+  max-width: 850px; /* 可以和 main 的 max-width 保持一致 */
+  margin: 0 auto;
+  padding: 0.75rem 1.5rem 0.6rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* 左侧标题 */
+.brand {
+  font-size: 0.9rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+/* 右侧导航 */
+.main-nav {
+  display: flex;
+  gap: 1.4rem;
+}
+
+.main-nav a {
+  font-size: 0.8rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #ffffff;
+  opacity: 0.82;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.main-nav a:hover {
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+/* 手机上导航自动缩进一点 */
+@media (max-width: 768px) {
+  .header-inner {
+    padding-inline: 1.1rem;
+  }
+  .main-nav {
+    gap: 0.9rem;
+  }
+  .brand {
+    font-size: 0.8rem;
+  }
+}
+
+</style>
 </head>
 <body>
 
