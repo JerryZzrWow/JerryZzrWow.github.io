@@ -4,13 +4,33 @@
   <meta charset="UTF-8" />
   <title>小说 · KAKA ARCHIVE</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <style>
+ <style>
+  :root {
+    --bg: #f6f5f2;
+    --bg-soft: #fdfcf9;
+    --text: #222222;
+    --muted: #666666;
+    --accent: #4c5fd5;
+    --accent-soft: rgba(76, 95, 213, 0.08);
+    --border: #e3e0da;
+    --card-bg: #ffffff;
+    --radius-lg: 18px;
+    --radius-md: 10px;
+    --shadow-soft: 0 18px 40px rgba(15, 10, 5, 0.08);
+    --max-width: 960px;
+  }
+
+  /* 下面再是 body / header / main 那些样式… */
+--border-soft: rgba(0, 0, 0, 0.08);
+    
     body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang SC", "Noto Sans CJK SC", sans-serif;
-      background: #f6f2ea;
-      color: #2b2620;
-    }
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+               "PingFang SC", "Noto Sans CJK SC", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
 
     html {
       scroll-behavior: smooth;
@@ -101,9 +121,13 @@
 
     /* 各组：长篇 / 中短篇 / 片段 */
     .section-block {
-      border-top: 1px solid rgba(0,0,0,0.08);
-      padding: 1.4rem 0 1.6rem;
-    }
+  border-top: 1px solid var(--border);
+}
+
+.section-block .note {
+  color: var(--muted);
+}
+
 
     .section-block h2 {
       font-size: 0.95rem;
@@ -112,11 +136,6 @@
       margin: 0 0 0.6rem;
     }
 
-    .section-block .note {
-      font-size: 0.8rem;
-      color: rgba(0,0,0,0.5);
-      margin-bottom: 0.9rem;
-    }
 
     /* 每一篇小说条目 */
     .work-list {
