@@ -572,27 +572,33 @@ section {
 }
 
 /* 关于写作的介绍区 */
-.intro-section {
-  padding: 2.2rem 1.6rem 1.8rem;
+/* 关于写作这块：做成编辑排版，而不是卡片 */
+#intro {
+  padding: 2rem 0 2.6rem;
+  border-bottom: 1px solid rgba(0,0,0,0.08);  /* 和分类那块一样的细线 */
 }
 
 .intro-inner {
-  background: var(--card-bg);
-  border-radius: 18px;
-  border: 1px solid var(--border);
-  box-shadow: 0 14px 28px rgba(0,0,0,0.04);
+  max-width: 42rem;
+  margin: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
   font-size: 0.95rem;
   line-height: 1.8;
 }
 
 .intro-inner h2 {
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   margin-bottom: 0.7rem;
+  letter-spacing: 0.06em;
 }
 
 .intro-inner p + p {
   margin-top: 0.6rem;
 }
+
 
 /* 分类区：大卡片链接到子页 */
 .category-section {
