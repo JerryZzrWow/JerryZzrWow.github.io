@@ -167,20 +167,15 @@
     }
 
     /* 主体布局 */
-   main {
+main {
   max-width: var(--max-width);
-  /* 往上“顶”一点，压在大图的下缘上 */
-  margin: -3rem auto 3rem;
-
-  /* 让 main 自己变成一块大卡片 */
-  background: var(--bg-soft);
-  border-radius: 24px;
-  box-shadow: var(--shadow-soft);
-
-  padding: 2rem 1.5rem 3rem;
-  position: relative;
-  z-index: 5;
+  margin: 0 auto;
+  padding: 2.2rem 1.5rem 4rem;
+  background: rgba(255, 255, 255, 0.35);  /* 超薄 */
+  backdrop-filter: blur(6px);              /* 文学朦胧感 */
+  border-radius: 20px;
 }
+
 
     section {
       margin-bottom: 2.2rem;
