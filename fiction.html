@@ -23,14 +23,18 @@
   /* 下面再是 body / header / main 那些样式… */
 --border-soft: rgba(0, 0, 0, 0.08);
     
-    body {
+  body {
   margin: 0;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
                "PingFang SC", "Noto Sans CJK SC", sans-serif;
-  background: var(--bg);
-  color: var(--text);
+  background: var(--bg) !important;
+  color: var(--text) !important;
 }
 
+
+html {
+  background: var(--bg) !important;
+}
 
     html {
       scroll-behavior: smooth;
