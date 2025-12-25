@@ -171,15 +171,18 @@ main {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 2.2rem 1.5rem 4rem;
-  background: rgba(255, 255, 255, 0.35);  /* 超薄 */
-  backdrop-filter: blur(6px);              /* 文学朦胧感 */
-  border-radius: 20px;
+  background: transparent;
+  box-shadow: none;
+  border-radius: 0;
 }
 
 
-    section {
-      margin-bottom: 2.2rem;
-    }
+
+section {
+  padding: 1.6rem 0 2.2rem;
+  border-bottom: 1px solid var(--border-soft);
+}
+
 
     /* Hero 区：一句话气质 + 大纲概览入口 */
     .hero {
