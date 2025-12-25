@@ -647,6 +647,73 @@
   border-color: var(--accent);
 }
 
+    /* 柔和排版式分类导航 */
+.type-soft {
+  padding: 1.8rem 1.6rem 2.6rem;
+}
+
+.type-soft-list {
+  margin-top: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.type-soft-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.2rem;
+  padding: 0.5rem 0 0.9rem;
+  border-bottom: 1px solid var(--border-soft);
+  text-decoration: none;
+  color: var(--text);
+  transition: border-color 0.16s ease, transform 0.16s ease;
+}
+
+.type-soft-main {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.type-soft-label {
+  font-size: 1.02rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.type-soft-sub {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.type-soft-desc {
+  font-size: 0.85rem;
+  max-width: 22rem;
+  text-align: right;
+  color: var(--muted);
+}
+
+/* hover 时的轻微反馈，不抢戏 */
+.type-soft-item:hover {
+  border-color: var(--accent);
+  transform: translateX(4px);
+}
+
+/* 手机上堆成上下排，不挤在左右 */
+@media (max-width: 768px) {
+  .type-soft-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .type-soft-desc {
+    text-align: left;
+    max-width: 100%;
+  }
+}
+
+
   </style>
 </head>
 <body>
@@ -706,42 +773,49 @@
   </section>
 
   <!-- 2. 作品分类入口：小说 / 散文 / 诗 -->
-  <section id="categories" class="category-section">
-    <h2 class="section-title">作品分类</h2>
-    <p class="section-subtitle">
-      以后我会把所有作品都归到这三个门牌下面：小说、散文和诗。现在先搭好入口，
-      之后再把每一篇慢慢搬进来。
-    </p>
+<section id="categories" class="type-soft">
+  <h2 class="section-title">作品分类</h2>
+  <p class="section-subtitle">
+    这里先按小说、散文和诗把入口搭好。它们更像三扇门：点进去，
+    会分别看到对应的目录和未完成的房间。
+  </p>
 
-    <div class="category-grid">
-      <!-- 小说 -->
-      <a class="category-card" href="fiction.html">
-        <h3>小说</h3>
-        <p>
-          包括短篇、中篇、以及还在连载或规划中的长篇。多线叙事、记忆层、关系与宗教感是常见的主题。
-        </p>
-        <span class="category-link">进入小说目录 →</span>
-      </a>
+  <div class="type-soft-list">
+    <!-- 小说 -->
+    <a class="type-soft-item" href="fiction.html">
+      <div class="type-soft-main">
+        <span class="type-soft-label">FICTION</span>
+        <span class="type-soft-sub">小说</span>
+      </div>
+      <p class="type-soft-desc">
+        长篇、短篇，以及那些带着多重时间线和记忆层的故事。
+      </p>
+    </a>
 
-      <!-- 散文 -->
-      <a class="category-card" href="essays.html">
-        <h3>散文 / 随笔</h3>
-        <p>
-          更接近日记和长信的部分：旅行中的场景、情绪的剖面、对人的观察和一些临时的理解。
-        </p>
-        <span class="category-link">进入散文页面 →</span>
-      </a>
+    <!-- 散文 -->
+    <a class="type-soft-item" href="essays.html">
+      <div class="type-soft-main">
+        <span class="type-soft-label">ESSAY</span>
+        <span class="type-soft-sub">散文 / 随笔</span>
+      </div>
+      <p class="type-soft-desc">
+        更靠近日常和自我陈述的部分：信件、游记、片刻的意识。
+      </p>
+    </a>
 
-      <!-- 诗 -->
-      <a class="category-card" href="poems.html">
-        <h3>诗 / 片段</h3>
-        <p>
-          一些太短、不适合被叫作“故事”的东西：句子、节选、意识流和练习式写作。
-        </p>
-        <span class="category-link">看看这些片段 →</span>
-      </a>
-    </div>
-  </section>
+    <!-- 诗 -->
+    <a class="type-soft-item" href="poems.html">
+      <div class="type-soft-main">
+        <span class="type-soft-label">POEM</span>
+        <span class="type-soft-sub">诗 / 片段</span>
+      </div>
+      <p class="type-soft-desc">
+        太短、不适合被叫作“故事”的那些：句子、节选和练习式写作。
+      </p>
+    </a>
+  </div>
+</section>
+
 </main>
 
 
