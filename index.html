@@ -805,9 +805,10 @@ html {
 
 <header class="site-header">
   <div class="header-inner">
-    <div class="brand">
-      KAKA ARCHIVE
-    </div>
+    <a href="index.html" class="brand brand-link">
+    KAKA ARCHIVE
+    </a>
+
     <nav class="main-nav">
       <a href="#intro">ABOUT</a>
       <a href="#categories">WORKS</a>
@@ -928,6 +929,37 @@ html {
     window.localStorage.setItem('zr-writing-theme', next);
   });
 </script>
+  
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const brandLink = document.querySelector('.brand-link');
+    if (!brandLink) return;
+
+    // 判断当前是不是首页：
+    // 1）根路径 "/"（自定义域名时常见）
+    // 2）"/index.html"
+    // 3）GitHub Pages 用户主页常见的 "/"
+    const path = window.location.pathname;
+    const isHome =
+      path === '/' ||
+      path.endsWith('/index.html') ||
+      path.match(/\/[^/]*\.github\.io\/?$/);
+
+    if (isHome) {
+      // 在首页：拦截点击，平滑回到顶部
+      brandLink.addEventListener('click', function (e) {
+        e.preventDefault();
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+    }
+    // 如果不是首页，就不拦截，让它正常跳转回 index.html
+  });
+</script>
+  
+</body>
 
 </body>
 </html>
