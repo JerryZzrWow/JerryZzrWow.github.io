@@ -514,12 +514,13 @@
 /* === Parallax 视差背景区 === */
 /* === Parallax 视差背景区（通栏） === */
 /* === Parallax 视差背景区（全宽 + 保留 fixed 效果） === */
+/* === Parallax 视差背景区（全宽 + 保留 fixed 效果） === */
 .parallax-hero {
   width: 100vw;                           
   margin-left: calc(50% - 50vw);          /* 从居中容器“拉”出到全屏 */
 
   min-height: 85vh;
-  background-image: url("images/Horse.JPG");   /* 换成你的图片名 */
+  background-image: url("images/Horse.JPG?v=1");   /* 你的那张马的图 */
   background-attachment: fixed;           /* 核心：视差效果 */
   background-position: center center;
   background-size: cover;
@@ -534,9 +535,7 @@
   position: relative;
 }
 
-
-
-/* 上面加一层半透明遮罩，让字更清晰 */
+/* 上面的半透明遮罩，方便字清楚一点，并和下面 main 过渡 */
 .parallax-hero::before {
   content: "";
   position: absolute;
@@ -548,9 +547,8 @@
   );
 }
 
-
 .parallax-hero-inner {
-  position: relative; /* 让文字在遮罩之上 */
+  position: relative; /* 让文字盖在遮罩上 */
   max-width: 720px;
 }
 
