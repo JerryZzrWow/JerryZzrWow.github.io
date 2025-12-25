@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>小说 · KAKA ARCHIVE</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang SC", "Noto Sans CJK SC", sans-serif;
+      background: #f6f2ea;
+      color: #2b2620;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* 复用主页风格的透明导航 */
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+      background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0)
+      );
+      color: #fff;
+    }
+    .header-inner {
+      max-width: 850px;
+      margin: 0 auto;
+      padding: 0.75rem 1.5rem 0.6rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand-link {
+      font-size: 0.9rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: #ffffff;
+    }
+    .main-nav {
+      display: flex;
+      gap: 1.4rem;
+    }
+    .main-nav a {
+      font-size: 0.8rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: #ffffff;
+      opacity: 0.82;
+      transition: opacity 0.15s ease, transform 0.15s ease;
+    }
+    .main-nav a:hover {
+      opacity: 1;
+      transform: translateY(-1px);
+    }
+
+    /* 小说页主体排版 */
+    main {
+      max-width: 850px;
+      margin: 0 auto;
+      padding: 5.2rem 1.5rem 3.5rem; /* 顶部多给一点，避开 fixed header */
+    }
+
+    .page-kicker {
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(0,0,0,0.45);
+      margin-bottom: 0.4rem;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      margin: 0 0 0.8rem;
+      letter-spacing: 0.06em;
+    }
+
+    .page-intro {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      max-width: 40rem;
+      text-align: justify;
+      text-align-last: left;
+      margin-bottom: 1.6rem;
+    }
+
+    .hint {
+      font-size: 0.78rem;
+      color: rgba(0,0,0,0.5);
+      margin-bottom: 2rem;
+    }
+
+    /* 各组：长篇 / 中短篇 / 片段 */
+    .section-block {
+      border-top: 1px solid rgba(0,0,0,0.08);
+      padding: 1.4rem 0 1.6rem;
+    }
+
+    .section-block h2 {
+      font-size: 0.95rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin: 0 0 0.6rem;
+    }
+
+    .section-block .note {
+      font-size: 0.8rem;
+      color: rgba(0,0,0,0.5);
+      margin-bottom: 0.9rem;
+    }
+
+    /* 每一篇小说条目 */
+    .work-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .work-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.8rem;
+      font-size: 0.88rem;
+    }
+
+    .work-main {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+
+    .work-title {
+      font-weight: 500;
+    }
+
+    .work-meta {
+      font-size: 0.78rem;
+      color: rgba(0,0,0,0.55);
+    }
+
+    .work-tags {
+      font-size: 0.78rem;
+      color: rgba(0,0,0,0.55);
+    }
+
+    .status-pill {
+      font-size: 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(0,0,0,0.18);
+      padding: 0.1rem 0.6rem;
+      align-self: flex-start;
+      white-space: nowrap;
+    }
+
+    .status-pill--ongoing {
+      border-color: rgba(164, 116, 61, 0.7);
+      color: rgba(164, 116, 61, 0.9);
+    }
+    .status-pill--draft {
+      border-style: dashed;
+      color: rgba(0,0,0,0.45);
+    }
+    .status-pill--done {
+      border-color: rgba(63, 125, 82, 0.7);
+      color: rgba(63, 125, 82, 0.95);
+    }
+
+    .back-home {
+      margin-top: 2.5rem;
+      font-size: 0.8rem;
+    }
+    .back-home a {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(0,0,0,0.25);
+      padding-bottom: 2px;
+    }
+
+    @media (max-width: 768px) {
+      main {
+        padding-inline: 1.1rem;
+      }
+      .work-item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="brand-link">KAKA ARCHIVE</a>
+    <nav class="main-nav">
+      <a href="index.html#intro">ABOUT</a>
+      <a href="index.html#categories">WORKS</a>
+      <a href="fiction.html">FICTION</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="page-kicker">FICTION</div>
+  <h1>小说</h1>
+  <p class="page-intro">
+    这里会慢慢收集我写过的小说：有完成的长篇、支离破碎的片段，
+    也有停在半路上的东西。它们大多围绕关系、记忆和一些不太好命名的感受。
+  </p>
+  <div class="hint">（下面这些只是结构示例，你可以把标题、年份、状态都换成自己的。）</div>
+
+  <!-- 长篇 / 计划中的系列 -->
+  <section class="section-block">
+    <h2>长篇 / 系列</h2>
+    <div class="note">结构比较完整、世界观持续出现的故事。</div>
+
+    <div class="work-list">
+      <div class="work-item">
+        <div class="work-main">
+          <div class="work-title">湖边的那些人（暂名）</div>
+          <div class="work-meta">2023– | 当代 · 青年 · 记忆</div>
+          <div class="work-tags">关键词：湖、告别、重逢、成长</div>
+        </div>
+        <span class="status-pill status-pill--ongoing">连载中</span>
+      </div>
+
+      <div class="work-item">
+        <div class="work-main">
+          <div class="work-title">水明漾笔记</div>
+          <div class="work-meta">构想阶段 | 工作更换、宗教、父女关系</div>
+          <div class="work-tags">关键词：寺庙、神像修复、海啸、梦</div>
+        </div>
+        <span class="status-pill status-pill--draft">构想 / 大纲</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 中短篇 -->
+  <section class="section-block">
+    <h2>中短篇</h2>
+    <div class="note">篇幅相对短一些的故事，单篇阅读。以后可以按主题再拆分。</div>
+
+    <div class="work-list">
+      <div class="work-item">
+        <div class="work-main">
+          <div class="work-title">（短篇示例标题一）</div>
+          <div class="work-meta">2024 · 约 8k 字 · 城市 / 夜晚</div>
+          <div class="work-tags">关键词：便利店、雨、暂时的亲密</div>
+        </div>
+        <span class="status-pill status-pill--done">已完成</span>
+      </div>
+
+      <div class="work-item">
+        <div class="work-main">
+          <div class="work-title">（短篇示例标题二）</div>
+          <div class="work-meta">2022 · 约 5k 字 · 校园 / 告别</div>
+          <div class="work-tags">关键词：屋顶、信件、夏天</div>
+        </div>
+        <span class="status-pill status-pill--done">已完成</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 片段 / 实验 -->
+  <section class="section-block">
+    <h2>片段 / 实验</h2>
+    <div class="note">不确定会不会长成完整故事的部分，先暂时放在这里。</div>
+
+    <div class="work-list">
+      <div class="work-item">
+        <div class="work-main">
+          <div class="work-title">（片段示例）</div>
+          <div class="work-meta">未整理 · 视角实验 / 语气练习</div>
+          <div class="work-tags">关键词：第二人称、错置时间</div>
+        </div>
+        <span class="status-pill status-pill--draft">片段</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="back-home">
+    <a href="index.html">← 回到主页</a>
+  </div>
+</main>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const brandLink = document.querySelector('.brand-link');
+    if (!brandLink) return;
+
+    const path = window.location.pathname;
+    const isHome =
+      path === '/' ||
+      path.endsWith('/index.html') ||
+      path.match(/\/[^/]*\.github\.io\/?$/);
+
+    if (isHome) {
+      brandLink.addEventListener('click', function (e) {
+        e.preventDefault();
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+    }
+  });
+</script>
+</body>
+</html>
