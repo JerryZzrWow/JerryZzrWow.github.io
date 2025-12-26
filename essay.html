@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>散文 · KAKA ARCHIVE</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <style>
+    :root {
+      --bg: #f6f5f2;
+      --bg-soft: #fdfcf9;
+
+      --text: #222222;
+      --muted: #666666;
+      --accent: #4c5fd5;
+      --accent-soft: rgba(76, 95, 213, 0.08);
+      --border: #e3e0da;
+      --border-soft: rgba(0,0,0,0.08);
+
+      --radius-md: 10px;
+
+      --year-title: rgba(0,0,0,0.65);
+      --story-icon: rgba(0,0,0,0.55);
+      --note-icon: rgba(0,0,0,0.55);
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+                   "PingFang SC", "Noto Sans CJK SC", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,0.9) 0, transparent 55%),
+        radial-gradient(circle at bottom right, rgba(179,188,255,0.25) 0, transparent 55%),
+        var(--bg);
+      color: var(--text);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Header — 与主页一致 */
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+      background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.5),
+        rgba(0,0,0,0)
+      );
+      color: #fff;
+    }
+
+    .header-inner {
+      max-width: 850px;
+      margin: 0 auto;
+      padding: 0.75rem 1.5rem 0.6rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-link {
+      font-size: 0.9rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    .main-nav {
+      display: flex;
+      gap: 1.4rem;
+    }
+
+    .main-nav a {
+      font-size: 0.8rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: #ffffff;
+      opacity: 0.82;
+      transition: 0.15s ease;
+    }
+
+    .main-nav a:hover {
+      opacity: 1;
+      transform: translateY(-1px);
+    }
+
+
+    /* Main 排版 */
+    main {
+      max-width: 850px;
+      margin: 0 auto;
+      padding: 5.2rem 1.5rem 3.5rem;
+    }
+
+    .page-kicker {
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(0,0,0,0.45);
+      margin-bottom: 0.4rem;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      margin: 0 0 1.6rem;
+      letter-spacing: 0.06em;
+    }
+
+
+    /* 年份标题 */
+    .year-block {
+      margin: 2.2rem 0 1.4rem;
+    }
+
+    .year-title {
+      font-size: 1rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--year-title);
+      margin-bottom: 0.8rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.4rem;
+    }
+
+
+    /* 散文条目 */
+    .essay-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .essay-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .essay-row {
+      display: flex;
+      gap: 1.2rem;
+      align-items: baseline;
+    }
+
+    .essay-date {
+      width: 4.2rem;
+      font-size: 0.85rem;
+      color: rgba(0,0,0,0.45);
+    }
+
+    .essay-title {
+      flex: 1;
+      font-size: 0.98rem;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+    }
+
+    /* 图标 */
+    .icon-note { /* 心情 */
+      font-size: 0.9rem;
+      margin-right: 0.4rem;
+      color: var(--note-icon);
+    }
+
+    .icon-story { /* 小故事 */
+      font-size: 0.9rem;
+      margin-right: 0.35rem;
+      color: var(--story-icon);
+    }
+
+    .essay-tags {
+      font-size: 0.78rem;
+      color: rgba(0,0,0,0.55);
+    }
+
+    @media (max-width: 768px) {
+      .essay-row {
+        flex-direction: column;
+        gap: 0.1rem;
+      }
+      .essay-date {
+        width: auto;
+      }
+    }
+  </style>
+</head>
+
+
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand-link" href="index.html">KAKA ARCHIVE</a>
+    <nav class="main-nav">
+      <a href="index.html#intro">ABOUT</a>
+      <a href="index.html#categories">WORKS</a>
+      <a href="essay.html">ESSAY</a>
+    </nav>
+  </div>
+</header>
+
+
+<main>
+  <div class="page-kicker">ESSAY</div>
+  <h1>散文</h1>
+
+  <!-- ========== 2025 年 ========== -->
+  <div class="year-block">
+    <div class="year-title">2025</div>
+
+    <div class="essay-list">
+
+      <!-- 心情型：icon-note ✦ -->
+      <div class="essay-item">
+        <div class="essay-row">
+          <div class="essay-date">12.08</div>
+          <div class="essay-title">
+            <span class="icon-note">✦</span> 光落在被子边缘的下午
+          </div>
+        </div>
+        <div class="essay-tags">心情 · 孤独 · 柔软</div>
+      </div>
+
+      <!-- 小故事型：icon-story ⌘ -->
+      <div class="essay-item">
+        <div class="essay-row">
+          <div class="essay-date">11.21</div>
+          <div class="essay-title">
+            <span class="icon-story">⌘</span> 机场里的小故事
+          </div>
+        </div>
+        <div class="essay-tags">故事 · 旅行 · 告别</div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ========== 2024 年 ========== -->
+  <div class="year-block">
+    <div class="year-title">2024</div>
+
+    <div class="essay-list">
+      <div class="essay-item">
+        <div class="essay-row">
+          <div class="essay-date">10.15</div>
+          <div class="essay-title">
+            <span class="icon-note">✦</span> 我想到某个人的名字
+          </div>
+        </div>
+        <div class="essay-tags">心情 · 回忆</div>
+      </div>
+
+      <div class="essay-item">
+        <div class="essay-row">
+          <div class="essay-date">07.02</div>
+          <div class="essay-title">
+            <span class="icon-story">⌘</span> 暴雨前的风
+          </div>
+        </div>
+        <div class="essay-tags">故事 · 城市 · 片刻</div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+</body>
+</html>
