@@ -163,17 +163,17 @@
     }
 
     /* 图标 */
-    .icon-note { /* 心情 */
-      font-size: 0.9rem;
-      margin-right: 0.4rem;
-      color: var(--note-icon);
-    }
+    .icon-note { 
+  font-size: 1rem;
+  margin-right: 0.4rem;
+  color: rgba(0,0,0,0.55);
+}
+.icon-story {
+  font-size: 1rem;
+  margin-right: 0.35rem;
+  color: rgba(0,0,0,0.55);
+}
 
-    .icon-story { /* 小故事 */
-      font-size: 0.9rem;
-      margin-right: 0.35rem;
-      color: var(--story-icon);
-    }
 
     .essay-tags {
       font-size: 0.78rem;
@@ -210,7 +210,11 @@
 <main>
   <div class="page-kicker">ESSAY</div>
   <h1>散文</h1>
-
+<div class="legend">
+  <span class="icon-note">•</span> 心情记录
+  &nbsp;&nbsp;&nbsp;
+  <span class="icon-story">—</span> 小故事
+</div>
   <!-- ========== 2025 年 ========== -->
   <div class="year-block">
     <div class="year-title">2025</div>
@@ -222,7 +226,7 @@
         <div class="essay-row">
           <div class="essay-date">12.08</div>
           <div class="essay-title">
-            <span class="icon-note">✦</span> 光落在被子边缘的下午
+            <span class="icon-note">•</span> 光落在被子边缘的下午
           </div>
         </div>
         <div class="essay-tags">心情 · 孤独 · 柔软</div>
@@ -233,7 +237,7 @@
         <div class="essay-row">
           <div class="essay-date">11.21</div>
           <div class="essay-title">
-            <span class="icon-story">⌘</span> 机场里的小故事
+            <span class="icon-story">—</span> 机场里的小故事
           </div>
         </div>
         <div class="essay-tags">故事 · 旅行 · 告别</div>
