@@ -181,8 +181,17 @@
 
   .work-title {
   position: relative;
+    text-decoration: none;     /* 关键：去掉下划线 */
 }
 
+
+.work-title:visited {
+  color: var(--text);        /* 防止访问后变紫 */
+}
+
+.work-title:hover {
+  text-decoration: underline; /* 悬停时才显示，比较文学 */
+}
 
 
 .work-title::after {
