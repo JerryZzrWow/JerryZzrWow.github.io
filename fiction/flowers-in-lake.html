@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     :root{
-      --bg:#f6f5f2; --text:#222; --muted:#666; --border:#e3e0da;
+      --bg: #efece4; --text:#222; --muted:#666; --border:#e3e0da;
       --paper: rgba(255,255,255,.55);
       --headerH: 64px; /* 用于滚动偏移 */
     }
@@ -15,9 +15,9 @@
       margin:0;
       font-family:system-ui,-apple-system,BlinkMacSystemFont,"SF Pro Text","PingFang SC","Noto Sans CJK SC",sans-serif;
       background:
-        radial-gradient(circle at top left, rgba(255,255,255,0.9) 0, transparent 55%),
-        radial-gradient(circle at bottom right, rgba(179,188,255,0.25) 0, transparent 55%),
-        var(--bg);
+    radial-gradient(circle at top left, rgba(255,255,255,0.35), transparent 60%),
+    radial-gradient(circle at bottom right, rgba(0,0,0,0.03), transparent 65%),
+    var(--bg);
       color:var(--text);
       line-height:1.85;
 
@@ -205,11 +205,6 @@ scroll-margin-top: calc(var(--headerH) + 18px);
     }
     .ch-right,
 
-    .chapter p{
-      margin: .9rem 0;
-      text-align:justify;
-	  color: rgba(0,0,0,.88);
-    }
 
 	  .chapter p:first-of-type{
   text-indent: 1.6em;
