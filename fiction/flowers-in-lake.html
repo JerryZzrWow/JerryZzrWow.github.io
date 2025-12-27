@@ -243,15 +243,20 @@ scroll-margin-top: calc(var(--headerH) + 18px);
   height: 1.15rem;      /* 你想更松就调大，比如 1.6rem */
 }
 
-/* Word 里带 tab 的段落（常用于对话/插入叙述） */
 p.dialogue{
-  font-size: 0.97rem;
-  line-height: 2.0;
-  letter-spacing: 0.015em;
-  padding-left: 1.2rem;
-  border-left: 2px solid rgba(0,0,0,.12);
-  color: rgba(0,0,0,.9);
+  padding-left: 0;
+  border-left: none;
+
+  text-indent: 2em;
+  margin: 1.1rem 0;
+
+  font-size: 0.98rem;
+  line-height: 2.05;
+  letter-spacing: 0.02em;
+
+  color: rgba(0,0,0,.82);    /* 轻轻变淡：像贴着纸面说话 */
 }
+
 
 	  
 
