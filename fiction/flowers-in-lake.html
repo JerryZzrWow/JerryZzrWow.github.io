@@ -2,12 +2,15 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
-  <title>湖边的那些人 · 目录 · KAKA ARCHIVE</title>
+  <title>湖中花束 · 正文 · KAKA ARCHIVE</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     :root{
       --bg:#f6f5f2; --text:#222; --muted:#666; --border:#e3e0da;
+      --paper: rgba(255,255,255,.55);
+      --headerH: 64px; /* 用于滚动偏移 */
     }
+
     body{
       margin:0;
       font-family:system-ui,-apple-system,BlinkMacSystemFont,"SF Pro Text","PingFang SC","Noto Sans CJK SC",sans-serif;
@@ -18,20 +21,24 @@
       color:var(--text);
       line-height:1.85;
 
-      /* 进入淡入（可选） */
       opacity:0;
       animation:fadeIn .8s ease-out forwards;
     }
     @keyframes fadeIn { to{opacity:1;} }
 
+    /* 平滑滚动（基础） */
+    html{ scroll-behavior:smooth; }
+
     .site-header{
       position:fixed; top:0; left:0; width:100%;
       z-index:100;
       background:linear-gradient(to bottom, rgba(0,0,0,.5), rgba(0,0,0,0));
+      height: var(--headerH);
     }
     .header-inner{
-      max-width:850px; margin:0 auto;
-      padding:.75rem 1.5rem .6rem;
+      max-width:1100px; margin:0 auto;
+      height: var(--headerH);
+      padding:0 1.5rem;
       display:flex; justify-content:space-between; align-items:center;
     }
     .brand-link{
@@ -39,11 +46,72 @@
       text-decoration:none; color:#fff;
     }
 
+    /* ====== 新：两栏布局 ====== */
     main{
-      max-width:850px; margin:0 auto;
-      padding:5.2rem 1.5rem 3.5rem;
+      max-width:1100px;
+      margin:0 auto;
+      padding: calc(var(--headerH) + 1.4rem) 1.5rem 3.5rem;
     }
 
+    .layout{
+      display:grid;
+      grid-template-columns: 240px 1fr;
+      gap: 2rem;
+      align-items:start;
+    }
+
+    /* 左侧章节导航 */
+    .side{
+      position:sticky;
+      top: calc(var(--headerH) + 1rem);
+      padding: 1rem 0;
+      border-right:1px solid rgba(0,0,0,.06);
+    }
+    .side-title{
+      font-size:.78rem;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color: rgba(0,0,0,.45);
+      margin:0 0 .8rem;
+    }
+    .side-nav{
+      display:flex;
+      flex-direction:column;
+      gap:.25rem;
+    }
+    .side-nav a{
+      text-decoration:none;
+      color:inherit;
+      padding:.45rem .6rem;
+      border-radius:10px;
+      font-size:.9rem;
+      line-height:1.35;
+    }
+    .side-nav a .no{
+      display:block;
+      font-size:.7rem;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color: rgba(0,0,0,.45);
+      margin-bottom:.08rem;
+    }
+    .side-nav a .name{
+      display:block;
+      font-weight:560;
+      letter-spacing:.01em;
+    }
+    .side-nav a:hover{
+      background: rgba(255,255,255,.35);
+    }
+    .side-nav a.is-active{
+      background: rgba(255,255,255,.70);
+      outline: 1px solid rgba(0,0,0,.08);
+    }
+
+    /* 右侧正文 */
+    .content{
+      min-width:0;
+    }
     .kicker{
       font-size:.75rem; letter-spacing:.18em; text-transform:uppercase;
       color:rgba(0,0,0,.45);
@@ -58,67 +126,70 @@
       margin-bottom:1.2rem;
     }
     .intro{
-      max-width:44rem;
+      max-width:48rem;
       font-size:.95rem; color:var(--muted);
-      margin-bottom:2rem;
+      margin:0 0 2rem;
       text-align:justify; text-align-last:left;
     }
 
-    .toc{
-      border-top:1px solid var(--border);
-      padding-top:1.4rem;
+    /* ====== 新：章节排版（正文里留出章节的“版式”） ====== */
+    .chapter{
+      margin: 2.4rem 0 3rem;
+      padding: 1.4rem 1.5rem;
+      background: var(--paper);
+      border: 1px solid rgba(0,0,0,.06);
+      border-radius: 16px;
+      backdrop-filter: blur(6px);
     }
-    .toc-title{
-      font-size:.95rem;
-      letter-spacing:.12em;
-      text-transform:uppercase;
-      margin:0 0 .8rem;
+
+    /* 关键：让锚点滚动时避开 fixed header */
+    .chapter{
+      scroll-margin-top: calc(var(--headerH) + 18px);
     }
-    .chapters{
+
+    .ch-head{
       display:flex;
-      flex-direction:column;
-      gap:.75rem;
-    }
-    .chapter-link{
-      display:flex;
+      align-items:baseline;
       justify-content:space-between;
-      gap:1rem;
-      text-decoration:none;
-      color:inherit;
-      padding:.65rem 0;
-      border-bottom:1px solid rgba(0,0,0,.06);
-    }
-    .chapter-link:hover{
-      background:rgba(255,255,255,.35);
+      gap: 1rem;
+      padding-bottom: .9rem;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid rgba(0,0,0,.08);
     }
     .ch-left{
-      display:flex; flex-direction:column; gap:.18rem;
+      min-width:0;
     }
     .ch-no{
       font-size:.72rem;
       letter-spacing:.12em;
       text-transform:uppercase;
       color:rgba(0,0,0,.45);
+      margin-bottom:.2rem;
     }
-    .ch-name{
-      font-size:.98rem;
-      font-weight:550;
-      letter-spacing:.01em;
+    .ch-title{
+      font-size:1.1rem;
+      font-weight:650;
+      margin:0;
+      letter-spacing:.02em;
     }
     .ch-note{
-      font-size:.78rem;
+      font-size:.82rem;
       color:rgba(0,0,0,.55);
+      margin-top:.35rem;
     }
     .ch-right{
       font-size:.78rem;
       color:rgba(0,0,0,.45);
       white-space:nowrap;
-      align-self:flex-start;
-      padding-top:.2rem;
+    }
+
+    .chapter p{
+      margin: .9rem 0;
+      text-align:justify;
     }
 
     .back{
-      margin-top:2.4rem;
+      margin-top:2.2rem;
       font-size:.85rem;
     }
     .back a{
@@ -128,9 +199,28 @@
       padding-bottom:2px;
     }
 
-    @media (max-width:768px){
-      .chapter-link{ flex-direction:column; }
-      .ch-right{ align-self:flex-start; padding-top:0; }
+    /* 移动端：目录折叠为顶部横向 */
+    @media (max-width:900px){
+      .layout{ grid-template-columns: 1fr; }
+      .side{
+        position:relative;
+        top:auto;
+        border-right:none;
+        border-bottom:1px solid rgba(0,0,0,.06);
+        padding: .5rem 0 1rem;
+      }
+      .side-nav{
+        flex-direction:row;
+        flex-wrap:wrap;
+        gap:.35rem;
+      }
+      .side-nav a{
+        padding:.4rem .55rem;
+        border:1px solid rgba(0,0,0,.07);
+        background: rgba(255,255,255,.35);
+      }
+      .side-nav a .no{ display:none; }
+      .side-nav a .name{ font-weight:600; }
     }
   </style>
 </head>
@@ -142,40 +232,119 @@
   </header>
 
   <main>
-    <div class="kicker">FICTION · SERIES</div>
-    <h1>湖边的那些人</h1>
-    <div class="meta">连载中 · 当代 · 记忆 · 城市边缘</div>
+    <div class="layout">
+      <!-- 左侧：章节目录（点击平滑跳转） -->
+      <aside class="side" aria-label="章节目录">
+        <div class="side-title">Chapters</div>
+        <nav class="side-nav" id="sideNav">
+          <!-- 这里把原来 href="ch01.html" 改成页内锚点 -->
+          <a href="#ch01" data-target="ch01">
+            <span class="no">CHAPTER 01</span>
+            <span class="name">第一章 ·（章节标题）</span>
+          </a>
+          <a href="#ch02" data-target="ch02">
+            <span class="no">CHAPTER 02</span>
+            <span class="name">第二章 ·（章节标题）</span>
+          </a>
+          <!-- 继续加... -->
+        </nav>
+      </aside>
 
-    <p class="intro">
-      这里放这部长篇的章节目录。你可以在这里写一个更像“书籍腰封”的简介：
-      这故事关于关系、缺席、以及那些在湖边发生又被城市吞回去的事情。
-    </p>
+      <!-- 右侧：正文 -->
+      <article class="content">
+        <div class="kicker">FICTION · SERIES</div>
+        <h1>湖边的那些人</h1>
+        <div class="meta">连载中 · 当代 · 记忆 · 城市边缘</div>
 
-    <section class="toc">
-      <h2 class="toc-title">Chapters</h2>
+        <p class="intro">
+          这里放简介（像书籍腰封）：这故事关于关系、缺席、以及那些在湖边发生又被城市吞回去的事情。
+        </p>
 
-      <div class="chapters">
-        <a class="chapter-link" href="ch01.html">
-          <div class="ch-left">
-            <div class="ch-no">CHAPTER 01</div>
-            <div class="ch-name">第一章 · （章节标题）</div>
-            <div class="ch-note">一行很轻的提示：比如“雨后 / 初遇 / 便利店灯光”。</div>
+        <!-- 章节 01 -->
+        <section class="chapter" id="ch01" data-chapter>
+          <div class="ch-head">
+            <div class="ch-left">
+              <div class="ch-no">CHAPTER 01</div>
+              <h2 class="ch-title">第一章 ·（章节标题）</h2>
+              <div class="ch-note">一行很轻的提示：比如“雨后 / 初遇 / 便利店灯光”。</div>
+            </div>
+            <div class="ch-right">更新：2025.12</div>
           </div>
-          <div class="ch-right">更新：2025.12</div>
-        </a>
 
-        <a class="chapter-link" href="ch02.html">
-          <div class="ch-left">
-            <div class="ch-no">CHAPTER 02</div>
-            <div class="ch-name">第二章 · （章节标题）</div>
-            <div class="ch-note">可选：一句“章节气味”。</div>
+          <!-- 正文内容：把你的文章段落贴在这里 -->
+          <p>（第一章正文第一段……）</p>
+          <p>（第二段……）</p>
+        </section>
+
+        <!-- 章节 02 -->
+        <section class="chapter" id="ch02" data-chapter>
+          <div class="ch-head">
+            <div class="ch-left">
+              <div class="ch-no">CHAPTER 02</div>
+              <h2 class="ch-title">第二章 ·（章节标题）</h2>
+              <div class="ch-note">可选：一句“章节气味”。</div>
+            </div>
+            <div class="ch-right">草稿</div>
           </div>
-          <div class="ch-right">草稿</div>
-        </a>
-      </div>
-    </section>
 
-    <div class="back"><a href="../../fiction.html">← 返回小说列表</a></div>
+          <p>（第二章正文第一段……）</p>
+          <p>（第二段……）</p>
+        </section>
+
+        <div class="back"><a href="../../fiction.html">← 返回小说列表</a></div>
+      </article>
+    </div>
   </main>
+
+  <script>
+    // 1) 处理 fixed header 的滚动偏移：比纯 scroll-behavior 更稳
+    //    （同时保留你想要的“平滑”）
+    const headerH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--headerH')) || 64;
+
+    document.querySelectorAll('.side-nav a[href^="#"]').forEach(a => {
+      a.addEventListener('click', (e) => {
+        const id = a.getAttribute('href').slice(1);
+        const el = document.getElementById(id);
+        if(!el) return;
+
+        e.preventDefault();
+        const y = el.getBoundingClientRect().top + window.scrollY - (headerH + 14);
+        window.scrollTo({ top: y, behavior: 'smooth' });
+        history.replaceState(null, '', '#' + id);
+      });
+    });
+
+    // 2) 自动高亮当前章节（读到哪章，左侧目录哪章亮）
+    const nav = document.getElementById('sideNav');
+    const links = Array.from(nav.querySelectorAll('a[data-target]'));
+    const sections = Array.from(document.querySelectorAll('[data-chapter]'));
+
+    const setActive = (id) => {
+      links.forEach(a => a.classList.toggle('is-active', a.dataset.target === id));
+    };
+
+    const io = new IntersectionObserver((entries) => {
+      // 找到“最接近顶部”的可见章节
+      const visible = entries
+        .filter(en => en.isIntersecting)
+        .sort((a,b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
+
+      if(visible) setActive(visible.target.id);
+    }, {
+      root: null,
+      threshold: 0.18,
+      rootMargin: `-${headerH + 20}px 0px -60% 0px`
+    });
+
+    sections.forEach(sec => io.observe(sec));
+
+    // 初始：如果 url 带 hash，先高亮对应章节
+    if(location.hash){
+      const id = location.hash.slice(1);
+      setActive(id);
+    } else if(sections[0]) {
+      setActive(sections[0].id);
+    }
+  </script>
 </body>
 </html>
