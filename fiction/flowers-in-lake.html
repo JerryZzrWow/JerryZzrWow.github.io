@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>湖边的那些人 · 目录 · KAKA ARCHIVE</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root{
+      --bg:#f6f5f2; --text:#222; --muted:#666; --border:#e3e0da;
+    }
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,BlinkMacSystemFont,"SF Pro Text","PingFang SC","Noto Sans CJK SC",sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,0.9) 0, transparent 55%),
+        radial-gradient(circle at bottom right, rgba(179,188,255,0.25) 0, transparent 55%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.85;
+
+      /* 进入淡入（可选） */
+      opacity:0;
+      animation:fadeIn .8s ease-out forwards;
+    }
+    @keyframes fadeIn { to{opacity:1;} }
+
+    .site-header{
+      position:fixed; top:0; left:0; width:100%;
+      z-index:100;
+      background:linear-gradient(to bottom, rgba(0,0,0,.5), rgba(0,0,0,0));
+    }
+    .header-inner{
+      max-width:850px; margin:0 auto;
+      padding:.75rem 1.5rem .6rem;
+      display:flex; justify-content:space-between; align-items:center;
+    }
+    .brand-link{
+      font-size:.9rem; letter-spacing:.18em; text-transform:uppercase;
+      text-decoration:none; color:#fff;
+    }
+
+    main{
+      max-width:850px; margin:0 auto;
+      padding:5.2rem 1.5rem 3.5rem;
+    }
+
+    .kicker{
+      font-size:.75rem; letter-spacing:.18em; text-transform:uppercase;
+      color:rgba(0,0,0,.45);
+      margin-bottom:.4rem;
+    }
+    h1{
+      font-size:1.6rem; margin:0 0 .6rem;
+      letter-spacing:.05em;
+    }
+    .meta{
+      font-size:.85rem; color:rgba(0,0,0,.55);
+      margin-bottom:1.2rem;
+    }
+    .intro{
+      max-width:44rem;
+      font-size:.95rem; color:var(--muted);
+      margin-bottom:2rem;
+      text-align:justify; text-align-last:left;
+    }
+
+    .toc{
+      border-top:1px solid var(--border);
+      padding-top:1.4rem;
+    }
+    .toc-title{
+      font-size:.95rem;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      margin:0 0 .8rem;
+    }
+    .chapters{
+      display:flex;
+      flex-direction:column;
+      gap:.75rem;
+    }
+    .chapter-link{
+      display:flex;
+      justify-content:space-between;
+      gap:1rem;
+      text-decoration:none;
+      color:inherit;
+      padding:.65rem 0;
+      border-bottom:1px solid rgba(0,0,0,.06);
+    }
+    .chapter-link:hover{
+      background:rgba(255,255,255,.35);
+    }
+    .ch-left{
+      display:flex; flex-direction:column; gap:.18rem;
+    }
+    .ch-no{
+      font-size:.72rem;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:rgba(0,0,0,.45);
+    }
+    .ch-name{
+      font-size:.98rem;
+      font-weight:550;
+      letter-spacing:.01em;
+    }
+    .ch-note{
+      font-size:.78rem;
+      color:rgba(0,0,0,.55);
+    }
+    .ch-right{
+      font-size:.78rem;
+      color:rgba(0,0,0,.45);
+      white-space:nowrap;
+      align-self:flex-start;
+      padding-top:.2rem;
+    }
+
+    .back{
+      margin-top:2.4rem;
+      font-size:.85rem;
+    }
+    .back a{
+      color:inherit;
+      text-decoration:none;
+      border-bottom:1px solid rgba(0,0,0,.25);
+      padding-bottom:2px;
+    }
+
+    @media (max-width:768px){
+      .chapter-link{ flex-direction:column; }
+      .ch-right{ align-self:flex-start; padding-top:0; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand-link" href="../../index.html">KAKA ARCHIVE</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="kicker">FICTION · SERIES</div>
+    <h1>湖边的那些人</h1>
+    <div class="meta">连载中 · 当代 · 记忆 · 城市边缘</div>
+
+    <p class="intro">
+      这里放这部长篇的章节目录。你可以在这里写一个更像“书籍腰封”的简介：
+      这故事关于关系、缺席、以及那些在湖边发生又被城市吞回去的事情。
+    </p>
+
+    <section class="toc">
+      <h2 class="toc-title">Chapters</h2>
+
+      <div class="chapters">
+        <a class="chapter-link" href="ch01.html">
+          <div class="ch-left">
+            <div class="ch-no">CHAPTER 01</div>
+            <div class="ch-name">第一章 · （章节标题）</div>
+            <div class="ch-note">一行很轻的提示：比如“雨后 / 初遇 / 便利店灯光”。</div>
+          </div>
+          <div class="ch-right">更新：2025.12</div>
+        </a>
+
+        <a class="chapter-link" href="ch02.html">
+          <div class="ch-left">
+            <div class="ch-no">CHAPTER 02</div>
+            <div class="ch-name">第二章 · （章节标题）</div>
+            <div class="ch-note">可选：一句“章节气味”。</div>
+          </div>
+          <div class="ch-right">草稿</div>
+        </a>
+      </div>
+    </section>
+
+    <div class="back"><a href="../../fiction.html">← 返回小说列表</a></div>
+  </main>
+</body>
+</html>
