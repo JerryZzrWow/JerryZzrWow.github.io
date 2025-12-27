@@ -179,35 +179,39 @@
     gap: 0.15rem;
   }
 
-  .work-title {
+.work-title{
   position: relative;
-    text-decoration: none;     /* 关键：去掉下划线 */
+  display: inline-block;
+  font-weight: 500;
+
+  color: var(--text);
+  text-decoration: none;
 }
 
-
-.work-title:visited {
-  color: var(--text);        /* 防止访问后变紫 */
+.work-title:visited,
+.work-title:hover,
+.work-title:active,
+.work-title:focus{
+  color: var(--text);
+  text-decoration: none;
 }
 
-.work-title:hover {
-  text-decoration: underline; /* 悬停时才显示，比较文学 */
-}
-
-
-.work-title::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -2px;
-  width: 0;
-  height: 1px;
+/* 只用细线效果，不用默认 underline，避免叠加 */
+.work-title::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-2px;
+  width:0;
+  height:1px;
   background: rgba(0,0,0,0.35);
   transition: width 0.2s ease;
 }
 
-.work-title:hover::after {
-  width: 100%;
+.work-title:hover::after{
+  width:100%;
 }
+
 
    
   .work-meta {
