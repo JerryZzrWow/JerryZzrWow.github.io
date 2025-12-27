@@ -74,45 +74,66 @@ font-family:
       border-right:1px solid rgba(0,0,0,.06);
     }
     .side-title{
-      font-size:.78rem;
-      letter-spacing:.14em;
-      text-transform:uppercase;
-      color: rgba(0,0,0,.45);
-      margin:0 0 .8rem;
-    }
+  font-family:
+    system-ui,
+    -apple-system,
+    "SF Pro Text",
+    "PingFang SC",
+    sans-serif;
+
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+
+  color: rgba(0,0,0,.38);
+  margin-bottom: 0.9rem;
+}
     .side-nav{
-      display:flex;
-      flex-direction:column;
-      gap:.25rem;
-    }
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
     .side-nav a{
-      text-decoration:none;
-      color:inherit;
-      padding:.45rem .6rem;
-      border-radius:10px;
-      font-size:.9rem;
-      line-height:1.35;
-    }
-    .side-nav a .no{
-      display:block;
-      font-size:.7rem;
-      letter-spacing:.12em;
-      text-transform:uppercase;
-      color: rgba(0,0,0,.45);
-      margin-bottom:.08rem;
-    }
-    .side-nav a .name{
-      display:block;
-      font-weight:560;
-      letter-spacing:.01em;
-    }
+  text-decoration: none;
+  padding: 0.45rem 0.6rem;
+  border-radius: 10px;
+
+  font-family:
+    system-ui,
+    -apple-system,
+    "SF Pro Text",
+    "PingFang SC",
+    sans-serif;
+
+  color: rgba(0,0,0,.65);
+  background: transparent;
+
+  transition: background .2s ease, color .2s ease;
+}
+
+    .side-nav .no{
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,.4);
+  margin-bottom: 0.05rem;
+}
+
+    .side-nav .name{
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
     .side-nav a:hover{
       background: rgba(255,255,255,.35);
     }
     .side-nav a.is-active{
-      background: rgba(255,255,255,.70);
-      outline: 1px solid rgba(0,0,0,.08);
-    }
+  background: rgba(0,0,0,.04);
+  color: rgba(0,0,0,.85);
+}
+
 
     /* 右侧正文 */
     .content{
@@ -168,13 +189,7 @@ font-family:
     .ch-left{
       min-width:0;
     }
-    .ch-no{
-      font-size:.72rem;
-      letter-spacing:.12em;
-      text-transform:uppercase;
-      color:rgba(0,0,0,.45);
-      margin-bottom:.2rem;
-    }
+    .ch-no,
     .ch-title{
       font-size:1.1rem;
       font-weight:650;
@@ -186,11 +201,7 @@ font-family:
       color:rgba(0,0,0,.55);
       margin-top:.35rem;
     }
-    .ch-right{
-      font-size:.78rem;
-      color:rgba(0,0,0,.45);
-      white-space:nowrap;
-    }
+    .ch-right,
 
     .chapter p{
       margin: .9rem 0;
@@ -218,18 +229,10 @@ font-family:
         border-bottom:1px solid rgba(0,0,0,.06);
         padding: .5rem 0 1rem;
       }
-      .side-nav{
-        flex-direction:row;
-        flex-wrap:wrap;
-        gap:.35rem;
-      }
-      .side-nav a{
-        padding:.4rem .55rem;
-        border:1px solid rgba(0,0,0,.07);
-        background: rgba(255,255,255,.35);
-      }
-      .side-nav a .no{ display:none; }
-      .side-nav a .name{ font-weight:600; }
+      .side-nav
+      .side-nav a,
+      .side-nav a .no,
+      .side-nav a .name,
     }
 
 	  /* Word 空行 -> 统一留白块 */
