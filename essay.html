@@ -33,8 +33,16 @@
         radial-gradient(circle at bottom right, rgba(179,188,255,0.25) 0, transparent 55%),
         var(--bg);
       color: var(--text);
+      opacity: 0;
+  animation: fadeIn 0.8s ease-out forwards;
     }
 
+    @keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+    
     html {
       scroll-behavior: smooth;
     }
